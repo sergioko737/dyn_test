@@ -2,7 +2,7 @@
 
 
 
-function main(){
+function main2(){
 
   $arr = array(1,3,3,4,2);
   echo "Hello worlddd!";
@@ -14,4 +14,4 @@ function main(){
   }
 }
 
-main();
+main2();
