@@ -1,9 +1,16 @@
 <?hh
 
-/*function findMaxSliceSum(ConstVector<int> $xs): int
- {
- throw new \Exception('Not implemented.');
- }*/
+function findMaxSliceSum(ConstVector<int> $xs): int {
+  $max_slice = 0;
+  $max_slice_found = 0;
+  foreach ($xs as $key => $value){
+    $max_slice_found += $value;
+    echo $max_slice_found;
+    echo "</br>";
+  }
+  //throw new \Exception('Not implemented.');
+  return $max_slice_found;
+}
 
 function prodExcept(ConstVector<num> $xs): ConstVector<num> {
   //count product of given ConstVector
@@ -35,7 +42,11 @@ function prodExcept(ConstVector<num> $xs): ConstVector<num> {
  }*/
 
 function main() {
-  $vec_test = ImmVector {1.3, 3, 4, 5, 2, 3, 3};
+  $vec_test = ImmVector {30, 3434, 4, 5, 2, 3, 3};
+  echo "Problem 1</br>";
+  echo findMaxSliceSum($vec_test);
+
+  echo "</br>";
   echo "Problem 2</br>";
   $zx = prodExcept($vec_test);
   var_dump($vec_test);
