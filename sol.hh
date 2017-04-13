@@ -27,9 +27,11 @@ class ParensParser
         }
 
         $this->current = array();
+        echo $this->current[0]."<br>";
         $this->stack = array();
 
         $this->string = $string;
+        echo $string."<br>";
         $this->length = strlen($this->string);
         // look at each character
         for ($this->position=0; $this->position < $this->length; $this->position++) {
@@ -65,7 +67,10 @@ class ParensParser
                     }
             }
         }
-
+        foreach ($this->current as $key => $value) {
+          echo $key." ".$value."<br>";
+        }
+        echo $this->current."curr num<br>";
         return $this->current;
     }
 
@@ -82,10 +87,11 @@ class ParensParser
     }
 }
 
-$string = '(TOP (S (NP (PRP I)) (VP (VBP love) (NP (NP (DT a) (JJ big) (NN bed)) (PP (IN of) (NP (NNS roses))))) (. .)))';
+//$string = '(TOP (S (NP (PRP I)) (VP (VBP love) (NP (NP (DT a) (JJ big) (NN bed)) (PP (IN of) (NP (NNS roses))))) (. .)))';
+$string = 'one (two)(three)(four(nested(nested before six) five(nestedsix))) two_outer';
 $p = new ParensParser();
 $result = $p->parse($string);
 var_dump($result);
 foreach ($result as $key => $value) {
-  echo $value." ";
+  echo " <br>".$key." ".$value;
 }
